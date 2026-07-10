@@ -503,6 +503,38 @@ gtag('consent', 'default', {
     .nav-links a{font-size:16px}
     #book form div[style*="1fr 1fr"]{grid-template-columns:1fr !important}
   }
+  /* ===== interaction states (hover / focus) ===== */
+  a[href="#book"], button[type="submit"], .nav-links a, details summary, #cookie-banner button {
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease, opacity .18s ease;
+  }
+  a[href="#book"]:hover, button[type="submit"]:hover, #cookie-banner button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(22,18,14,.22);
+  }
+  a[href="#book"]:active, button[type="submit"]:active, #cookie-banner button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(22,18,14,.18);
+  }
+  .nav-links a:hover { color: #16120E; }
+  footer a:hover { color: #fff !important; }
+  details summary:hover h3, details summary:hover { color: #F2670F; }
+  a:focus-visible, button:focus-visible, summary:focus-visible, label:focus-visible {
+    outline: 3px solid #F2670F !important;
+    outline-offset: 2px;
+  }
+  form input:focus, form select:focus, form textarea:focus {
+    border-color: #F2670F !important;
+    box-shadow: 0 0 0 3px rgba(242,103,15,.18);
+  }
+  /* ===== reduced motion ===== */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+  }
 </style>
 </helmet>
 <div style="width:100%;overflow-x:clip;background:#F7F3EC">
