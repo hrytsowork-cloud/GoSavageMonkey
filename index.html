@@ -584,7 +584,7 @@ gtag('consent', 'default', {
   }
   /* ===== process steps hover ===== */
   .step {
-    transition: opacity .25s ease, transform .25s ease, background-color .25s ease;
+    transition: opacity .25s ease;
   }
   .step::before {
     content: "";
@@ -598,10 +598,8 @@ gtag('consent', 'default', {
   }
   .step:hover::before { width: 100%; }
   .step:hover > div:first-of-type { color: #F2670F !important; }
-  .step:hover {
-    background: rgba(247,165,82,.07);
-    transform: translateY(-4px);
-  }
+  .step p { transition: color .25s ease; }
+  .step:hover p { color: rgba(255,255,255,.85) !important; }
   .steps-grid:hover .step { opacity: .5; }
   .steps-grid:hover .step:hover { opacity: 1; }
   /* ===== interaction states (hover / focus) ===== */
