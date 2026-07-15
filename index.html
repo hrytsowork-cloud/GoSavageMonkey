@@ -582,6 +582,28 @@ gtag('consent', 'default', {
     .nav-links a{font-size:16px}
     #book form div[style*="1fr 1fr"]{grid-template-columns:1fr !important}
   }
+  /* ===== process steps hover ===== */
+  .step {
+    transition: opacity .25s ease, transform .25s ease, background-color .25s ease;
+  }
+  .step::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: #F2670F;
+    transition: width .35s ease;
+  }
+  .step:hover::before { width: 100%; }
+  .step:hover > div:first-of-type { color: #F2670F !important; }
+  .step:hover {
+    background: rgba(247,165,82,.07);
+    transform: translateY(-4px);
+  }
+  .steps-grid:hover .step { opacity: .5; }
+  .steps-grid:hover .step:hover { opacity: 1; }
   /* ===== interaction states (hover / focus) ===== */
   a[href="#book"], button[type="submit"], .nav-links a, details summary, #cookie-banner button {
     transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease, opacity .18s ease;
@@ -912,12 +934,12 @@ gtag('consent', 'default', {
         </div>
         <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(247,165,82,.14);border:1px solid rgba(247,165,82,.3);padding:11px 18px;border-radius:100px;font-size:13.5px;font-weight:700;color:#F7A552"><span style="width:7px;height:7px;border-radius:50%;background:#F7A552"></span>No blind campaign launch. We diagnose first.</div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin:48px 0 0">
-        <div style="padding:24px 22px 24px 0;border-top:2px solid rgba(247,165,82,.4);position:relative"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(247,165,82,.85);line-height:1">01</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We collect context</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">Your store, products, current ad situation, goals and budget.</p></div>
-        <div style="padding:24px 22px;border-top:2px solid rgba(247,165,82,.4)"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(247,165,82,.85);line-height:1">02</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We run the diagnostic</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">Store, offer, product pages, Merchant Center, feed, tracking and ads.</p></div>
-        <div style="padding:24px 22px;border-top:2px solid rgba(247,165,82,.4)"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(247,165,82,.85);line-height:1">03</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We define priorities</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">What to scale, fix, test or exclude from ad spend.</p></div>
-        <div style="padding:24px 22px;border-top:2px solid rgba(247,165,82,.4)"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(247,165,82,.85);line-height:1">04</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We prepare the plan</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">Clear recommendations for store, products, feed, tracking, campaigns.</p></div>
-        <div style="padding:24px 0 24px 22px;border-top:2px solid #F2670F"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:#F2670F;line-height:1">05</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We launch or rebuild</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">In Growth Setup &amp; Full Growth, we set up or rebuild Google Shopping and eMAG on the diagnostic.</p></div>
+      <div class="steps-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin:48px 0 0">
+        <div class="step" style="padding:24px 22px 24px 0;border-top:2px solid rgba(247,165,82,.4);position:relative"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(247,165,82,.85);line-height:1">01</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We collect context</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">Your store, products, current ad situation, goals and budget.</p></div>
+        <div class="step" style="padding:24px 22px;border-top:2px solid rgba(247,165,82,.4);position:relative"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(247,165,82,.85);line-height:1">02</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We run the diagnostic</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">Store, offer, product pages, Merchant Center, feed, tracking and ads.</p></div>
+        <div class="step" style="padding:24px 22px;border-top:2px solid rgba(247,165,82,.4);position:relative"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(247,165,82,.85);line-height:1">03</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We define priorities</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">What to scale, fix, test or exclude from ad spend.</p></div>
+        <div class="step" style="padding:24px 22px;border-top:2px solid rgba(247,165,82,.4);position:relative"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(247,165,82,.85);line-height:1">04</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We prepare the plan</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">Clear recommendations for store, products, feed, tracking, campaigns.</p></div>
+        <div class="step" style="padding:24px 0 24px 22px;border-top:2px solid #F2670F;position:relative"><div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:#F2670F;line-height:1">05</div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:14px 0 0">We launch or rebuild</h3><p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:8px 0 0">In Growth Setup &amp; Full Growth, we set up or rebuild Google Shopping and eMAG on the diagnostic.</p></div>
       </div>
       <div style="margin:38px 0 0"><a href="#book" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#16120E;font-weight:700;font-size:15.5px;padding:15px 24px;border-radius:12px">Schedule a Strategy Call <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#16120E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div>
     </div>
