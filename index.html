@@ -625,15 +625,25 @@ gtag('consent', 'default', {
     position: absolute;
     right: 22px;
     top: 50%;
-    width: 30px;
-    height: 30px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23F2670F' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M27 16H8'/%3E%3Cpath d='M16 7 7 16l9 9'/%3E%3C/svg%3E") center/contain no-repeat;
-    transform: translate(16px, -50%);
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 0 0 #F2670F, -14px 0 0 #F2670F, -28px 0 0 #F2670F, -42px 0 0 #F2670F, -56px 0 0 #F2670F;
     opacity: 0;
-    transition: transform .3s ease, opacity .3s ease;
+    transition: opacity .3s ease;
     pointer-events: none;
   }
-  .deliv-card:hover::after { transform: translate(0, -50%); opacity: 1; }
+  .deliv-card:hover::after { opacity: 1; animation: delivDots .75s ease-out forwards; }
+  @keyframes delivDots {
+    0%   { box-shadow: 0 0 0 rgba(242,103,15,0), -14px 0 0 rgba(242,103,15,0), -28px 0 0 rgba(242,103,15,0), -42px 0 0 rgba(242,103,15,0), -56px 0 0 rgba(242,103,15,0); }
+    20%  { box-shadow: 0 0 0 rgba(242,103,15,1), -14px 0 0 rgba(242,103,15,0), -28px 0 0 rgba(242,103,15,0), -42px 0 0 rgba(242,103,15,0), -56px 0 0 rgba(242,103,15,0); }
+    40%  { box-shadow: 0 0 0 rgba(242,103,15,1), -14px 0 0 rgba(242,103,15,1), -28px 0 0 rgba(242,103,15,0), -42px 0 0 rgba(242,103,15,0), -56px 0 0 rgba(242,103,15,0); }
+    60%  { box-shadow: 0 0 0 rgba(242,103,15,1), -14px 0 0 rgba(242,103,15,1), -28px 0 0 rgba(242,103,15,1), -42px 0 0 rgba(242,103,15,0), -56px 0 0 rgba(242,103,15,0); }
+    80%  { box-shadow: 0 0 0 rgba(242,103,15,1), -14px 0 0 rgba(242,103,15,1), -28px 0 0 rgba(242,103,15,1), -42px 0 0 rgba(242,103,15,1), -56px 0 0 rgba(242,103,15,0); }
+    100% { box-shadow: 0 0 0 rgba(242,103,15,1), -14px 0 0 rgba(242,103,15,1), -28px 0 0 rgba(242,103,15,1), -42px 0 0 rgba(242,103,15,1), -56px 0 0 rgba(242,103,15,1); }
+  }
   .deliv-card:hover {
     border-color: rgba(242,103,15,.35);
     box-shadow: 0 6px 18px rgba(22,18,14,.08);
